@@ -1,6 +1,9 @@
 ### 经过仔细测算，C语言里面并不适合使用pow函数来计算正负（即 `pow(-1,n)`）
 以下为测试用例，这个用例使用精心设计的算法，保证了性能最大化：
 ```
+#include <stdio.h>
+#include <time.h>
+
 int main() {
     long x;
     double sum = 0.0;
