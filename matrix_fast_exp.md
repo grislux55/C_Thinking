@@ -77,7 +77,7 @@ while (level) {
     if (level & 1) {
         ans = (ans * tmp) % mod;
     }
-    tmp *= tmp;
+    tmp *= tmp % mod;
     level >>= 1;
 }
 ```
