@@ -77,23 +77,23 @@ while (level) {
     if (level & 1) {
         ans = (ans * tmp) % mod;
     }
-    tmp *= tmp % mod;
+    tmp = (tmp * tmp) % mod;
     level >>= 1;
 }
 ```
 
 这样就得到了通用的一个快速幂函数：
 ```
-int fast_pow_mod(int n, int level, int mod) {
-    int tmp = n, ans = 1;
+int fast_pow_mod(int tmp, int level, int mod) {
+    int ret = 1;
     while (level) {
         if (level & 1) {
-            ans = (ans * tmp) % mod;
+            ret = (ret * tmp) % mod;
         }
-        tmp *= tmp;
+        tmp = (tmp * tmp) % mod;
         level >>= 1;
     }
-    return tmp;
+    return ret;
 }
 ```
 
