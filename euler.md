@@ -50,7 +50,7 @@
 #### 两种算法的比较：
 
 - 程序：
-```
+```c++
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;

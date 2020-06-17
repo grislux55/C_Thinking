@@ -11,7 +11,7 @@
 
 我们可以想到的第一个朴素的想法就是暴力运算，时间复杂度`O(N)`。
 
-```
+```c
 int pow_mod(int n, int level, int mod) {
     int tmp = n;
     for (int i = 1; i < level; i++) {
@@ -61,7 +61,7 @@ ans *= tmp
 每次循环时要将已经使用的位数丢弃,使用：`level >>= 1`。
 
 可以抽象出通用代码：
-```
+```c
 while (level) {
     if (level & 1) {
         ans *= tmp;
@@ -72,7 +72,7 @@ while (level) {
 ```
 
 加入取余部分：
-```
+```c
 while (level) {
     if (level & 1) {
         ans = (ans * tmp) % mod;
@@ -83,7 +83,7 @@ while (level) {
 ```
 
 这样就得到了通用的一个快速幂函数：
-```
+```c
 int fast_pow_mod(int tmp, int level, int mod) {
     int ret = 1;
     while (level) {
@@ -104,7 +104,7 @@ int fast_pow_mod(int tmp, int level, int mod) {
 快速幂似乎已经完结了，但是转念一想，矩阵也是支持乘法的，那么我们似乎可以将其推广到求一个矩阵的n次方上去。
 
 定义如下一个矩阵：
-```
+```c++
 struct Matrix {
     vector<vector<int>> mat;
     int rows, cols;
@@ -156,7 +156,7 @@ struct Matrix {
 既然已经实现了矩阵类型了，那么怎么进行快速乘法呢？
 
 答案很简单，直接将其当作整数用就好了，不过开始相乘的时候需要的基底变量是一个单位矩阵：
-```
+```c++
 Matrix fast_exp(Matrix square, int power) {
     Matrix result = Matrix::identity_matrix(square.rows);
 
@@ -173,7 +173,7 @@ Matrix fast_exp(Matrix square, int power) {
 ```
 
 加入取余：
-```
+```c++
 Matrix fast_exp_mod(Matrix square, int power, int mod) {
     Matrix result = Matrix::identity_matrix(square.rows);
 
@@ -240,7 +240,7 @@ oof，好像单独写个矩阵快速幂没啥用的感觉，那我们来加速�
 ```
 
 代码写作：
-```
+```c++
 int a, b, n;
 while (cin >> a >> b >> n) {
     if (n <= 2) {

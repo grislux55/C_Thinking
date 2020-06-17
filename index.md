@@ -1,4 +1,3 @@
-- [有关用幂运算设置正负的思考](https://github.com/grislux55/C_Thinking/blob/master/pow.md)
 - [欧拉函数有关思考](https://github.com/grislux55/C_Thinking/blob/master/euler.md)
 - [矩阵快速幂](https://github.com/grislux55/C_Thinking/blob/master/matrix_fast_exp.md)
 - [乘法逆元相关](https://github.com/grislux55/C_Thinking/blob/master/inverse.md)
